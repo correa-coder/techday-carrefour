@@ -1,0 +1,36 @@
+/* navbar */
+.navbar-item {
+    display: flex;
+    font-size: .8rem;
+}
+
+.navbar-item:hover {
+    cursor: not-allowed;
+    background-color: #F2F2F2;
+    border-radius: 5px;
+}
+
+/* buttons */
+.btn {
+    text-align: center;
+    text-decoration: none;
+    border: 0 none;
+    padding: 4px 14px;
+    width: 100%;
+    max-width: 300px;
+    font-weight: 500;
+    min-height: 40px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px;
+}
+
+.btn-primary {
+    background: var(--blue-500);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--blue-200);
+}
