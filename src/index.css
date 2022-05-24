@@ -1,3 +1,13 @@
+/* color palette */
+:root {
+  --blue-200: rgb(46, 140, 246);
+  --blue-400: rgb(0, 122, 255);
+  --blue-500: rgb(32, 91, 198);
+  --blue-600: rgb(2, 41, 109);
+  --red-400: rgb(232, 31, 37);
+  --yellow-400: rgb(255, 229, 0);
+}
+
 /* global styles */
 
 body {
@@ -10,7 +20,7 @@ body {
 }
 
 h1 {
-  color: rgb(32, 91, 198);
+  color: var(--blue-500);
   font-weight: 700;
   font-size: 2rem;
   margin-top: 1rem;
@@ -69,12 +79,12 @@ input[type="text"]:focus {
 }
 
 .btn-primary {
-  background: rgb(32, 91, 198);
+  background: var(--blue-500);
   color: white;
 }
 
 .btn-primary:hover {
-  background: rgb(46, 140, 246);
+  background: var(--blue-200);
 }
 
 /* margin utilities */
