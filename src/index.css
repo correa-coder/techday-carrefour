@@ -31,6 +31,18 @@ input[type="text"]:focus {
   outline: none;
 }
 
+/* navbar */
+.navbar-item {
+  display:flex;
+  font-size: .8rem;
+}
+
+.navbar-item:hover {
+  cursor:not-allowed;
+  background-color: #F2F2F2;
+  border-radius: 5px;
+}
+
 /* utilities */
 
 .container {
@@ -69,4 +81,9 @@ input[type="text"]:focus {
 .my-2 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.px-1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
