@@ -10,6 +10,13 @@
     border-radius: 5px;
 }
 
+/* inputs */
+.input-group {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    width: 50%;
+}
+
 /* buttons */
 .btn {
     text-align: center;

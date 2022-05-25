@@ -1,5 +1,6 @@
 import { Navbar } from './components/Navbar';
-import { InputGroup } from './components/InputGroup';
+import { SearchInput } from './components/SearchInput';
+import { SearchButton } from './components/SearchButton';
 
 function App() {
 
@@ -12,7 +13,10 @@ function App() {
         <section>
           <div id="searchByPostalCode" style={{ width: "50%", margin: "4rem auto" }}>
             <h1>Pesquisa por CEP</h1>
-            <InputGroup placeholder="09851-350" />
+            <form className="input-group">
+              <SearchInput placeholder="09851-350"/>
+              <SearchButton />
+            </form>
             <div className="my-2">
               <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php" rel="external" target="_blank" title="Busca CEP | Correios" style={{ color: "gray", textDecoration: "underline" }}>Não sei meu CEP</a>
             </div>
