@@ -5,6 +5,6 @@ const inputStyle = {
 
 export function SearchInput(props) {
     return (
-        <input type="text" placeholder={props.placeholder} style={inputStyle} />
+        <input type="text" placeholder={props.placeholder} style={inputStyle} onChange={props.onChange} />
     )  
 }
