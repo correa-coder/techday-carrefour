@@ -66,8 +66,68 @@
     color: var(--blue-500);
 }
 
+/* product price with large font */
+.product-price-lg {
+    color: var(--blue-500);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
 #productsContainer {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     width: 75%;
+}
+
+/* modal */
+.modal {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .4);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.modal .container {
+    width: 40%;
+    height: fit-content;
+    color: black;
+    background: white;
+    border-radius: 5px;
+    position: relative;
+}
+
+.modal-content {
+    padding: 0 3rem 1rem 2rem;
+}
+
+.modal-content h2 {
+    font-weight: 400;
+    color: rgb(51, 51, 51);
+}
+
+.modal-close-btn {
+    background: transparent;
+    color: var(--red-400);
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 1.3rem;
+    top: .7rem;
+}
+
+.modal-close-btn:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.modal-description {
+    margin-top: 2.5rem;
+    max-width: 340px;
+    max-height: 230px;
+    overflow: scroll;
 }
