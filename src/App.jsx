@@ -41,6 +41,20 @@ function App() {
       .catch(error => console.log("ERROR: " + error.message))
   }
 
+  const searchProductsBySellerName = async () => {
+    const BASE_URL = "http://localhost:5000/products";
+    const endpoint = BASE_URL + "?fq=" + sellerName;
+
+    try {
+      const request = await fetch(endpoint, {method: "GET", cache: "no-cache"});
+      const jsonData = await request.json();
+      console.log(jsonData);
+    }
+    catch (error) {
+      alert(`Não foi possível carregar os produtos\nErro:\n${error}`);
+    }
+  }
+
   const handlePostalCodeInput = (e) => {
     setPostalCode(e.target.value);
   }
@@ -79,7 +93,7 @@ function App() {
               <div className="card" style={{ width: "36%" }}>
                 <h4 style={{ textAlign: "center" }}>{sellerName}</h4>
                 <img src={logoImage} alt="Logo" />
-                <button className="btn btn-primary">Selecionar</button>
+                <button className="btn btn-primary" onClick={searchProductsBySellerName}>Selecionar</button>
               </div>
             </div>
           ) : null}
