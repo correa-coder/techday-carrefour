@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { SearchInput } from './components/SearchInput';
 import { SearchButton } from './components/SearchButton';
+import logoImage from './assets/images/logo.png';
 
 function App() {
   const [postalCode, setPostalCode] = useState("");
