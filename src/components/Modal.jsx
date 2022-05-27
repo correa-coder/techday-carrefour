@@ -21,7 +21,7 @@ export function Modal(props) {
                         Marca: <span style={brandStyle}>{props.content.brand}</span>
                     </div>
                     <div style={{ display: "flex" }}>
-                        <div style={{ maxWidth: "200px" }}>
+                        <div style={{ maxWidth: "200px", marginTop: "2rem" }}>
                             <img src={props.content.image} alt={props.content.productName} className="img-fluid" />
                         </div>
                         <p className="modal-description">{props.content.description}</p>
