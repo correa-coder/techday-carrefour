@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { SearchInput } from './components/SearchInput';
 import { SearchButton } from './components/SearchButton';
 import { ProductCard } from './components/ProductCard';
+import { Modal } from './components/Modal';
 import logoImage from './assets/images/logo.png';
 import mockProducts from './utils/mock_data';
 
@@ -11,6 +12,15 @@ function App() {
   const [postalCode, setPostalCode] = useState("");
   const [sellerName, setSellerName] = useState("Carrefour");
   const [products, setProducts] = useState(mockProducts);
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [modalContent, setModalContent] = useState({
+    productName: "",
+    brand: "",
+    link: "",
+    image: "",
+    description: "",
+    price: 0
+  });
 
   const searchByPostalCode = (postalCode) => {
     const BASE_URL = "http://localhost:5000/sellers";
@@ -44,6 +54,9 @@ function App() {
 
   return (
     <div className="App">
+      {isModalVisible ? (
+        <Modal onClose={() => setModalVisible(false)} content={modalContent} />
+      ) : null}
       <header>
         <Navbar />
       </header>
