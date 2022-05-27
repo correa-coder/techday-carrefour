@@ -11,7 +11,7 @@ import mockProducts from './utils/mock_data';
 function App() {
   const [postalCode, setPostalCode] = useState("");
   const [sellerName, setSellerName] = useState("");
-  const [products, setProducts] = useState(mockProducts);
+  const [products, setProducts] = useState([]);
   const [isModalVisible, setModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState({
     productName: "",
@@ -49,6 +49,19 @@ function App() {
     catch (error) {
       alert(`Não foi possível carregar os produtos\nErro:\n${error}`);
     }
+  }
+
+  const loadProducts = async () => {
+    // request the products in the API
+    let foundProducts = await searchProductsBySellerName();
+
+    // remove unused properties from the json object
+    foundProducts = foundProducts.map((productObject) => {
+      return simplifyProductObject(productObject);
+    });
+
+    // update state to show the products in the page
+    setProducts(foundProducts);
   }
 
   const handlePostalCodeInput = (e) => {
@@ -89,23 +102,25 @@ function App() {
               <div className="card" style={{ width: "36%" }}>
                 <h4 style={{ textAlign: "center" }}>{sellerName}</h4>
                 <img src={logoImage} alt="Logo" />
-                <button className="btn btn-primary" onClick={searchProductsBySellerName}>Selecionar</button>
+                <button className="btn btn-primary" onClick={loadProducts}>Selecionar</button>
               </div>
             </div>
           ) : null}
         </section>
-        <section>
-          <h3>Produtos</h3>
-          <div id="productsContainer">
-            {
-              products.map((product) => <ProductCard productObject={product} openModal={() => {
-                setModalContent(product)
-                setModalVisible(true)
+        {products.length !== 0 ? (
+          <section>
+            <h3>Produtos</h3>
+            <div id="productsContainer">
+              {
+                products.map((product) => <ProductCard productObject={product} openModal={() => {
+                  setModalContent(product)
+                  setModalVisible(true)
+                }
+                } />)
               }
-              } />)
-            }
-          </div>
-        </section>
+            </div>
+          </section>
+        ) : null}
       </main>
     </div>
   )
