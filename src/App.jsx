@@ -10,7 +10,7 @@ import mockProducts from './utils/mock_data';
 
 function App() {
   const [postalCode, setPostalCode] = useState("");
-  const [sellerName, setSellerName] = useState("Carrefour");
+  const [sellerName, setSellerName] = useState("");
   const [products, setProducts] = useState(mockProducts);
   const [isModalVisible, setModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState({
@@ -35,7 +35,8 @@ function App() {
     })
       .then(response => response.json())
       .then(json => {
-        console.log(json);
+        // get the first seller and update state
+        setSellerName(json[0]["sellers"][0]["name"]);
       })
       .catch(error => console.log("ERROR: " + error.message))
   }
@@ -72,14 +73,16 @@ function App() {
               <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php" rel="external" target="_blank" title="Busca CEP | Correios" style={{ color: "gray", textDecoration: "underline" }}>Não sei meu CEP</a>
             </div>
           </div>
-          <div style={{ width: "50%", margin: "1rem auto" }}>
-            <p>Clique em selecionar para carregar os produtos</p>
-            <div className="card" style={{ width: "36%" }}>
-              <h4 style={{ textAlign: "center" }}>{sellerName}</h4>
-              <img src={logoImage} alt="Logo" />
-              <button className="btn btn-primary">Selecionar</button>
+          {sellerName ? (
+            <div style={{ width: "50%", margin: "1rem auto" }}>
+              <p>Loja mais próxima encontrada</p>
+              <div className="card" style={{ width: "36%" }}>
+                <h4 style={{ textAlign: "center" }}>{sellerName}</h4>
+                <img src={logoImage} alt="Logo" />
+                <button className="btn btn-primary">Selecionar</button>
+              </div>
             </div>
-          </div>
+          ) : null}
         </section>
         <section>
           <h3>Produtos</h3>
