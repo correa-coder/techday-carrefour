@@ -22,23 +22,19 @@ function App() {
     price: 0
   });
 
-  const searchByPostalCode = (postalCode) => {
+  const searchByPostalCode = async (postalCode) => {
     const BASE_URL = "http://localhost:5000/sellers";
+    const endpoint = BASE_URL + `?postalCode=${postalCode}`;
 
-    // build the query string
-    let queryURL = BASE_URL + `?postalCode=${postalCode}`;
-
-    // http request
-    fetch(queryURL, {
-      method: "GET",
-      cache: "no-cache"
-    })
-      .then(response => response.json())
-      .then(json => {
-        // get the first seller and update state
-        setSellerName(json[0]["sellers"][0]["name"]);
-      })
-      .catch(error => console.log("ERROR: " + error.message))
+    try {
+      const request = await fetch(endpoint, {method: "GET", cache: "no-cache"});
+      const jsonData = await request.json();
+      // get the first seller and update state
+      setSellerName(jsonData[0]["sellers"][0]["name"]);
+    }
+    catch (error) {
+      alert(`Não foi possível carregar as lojas\nErro:\n${error}`);
+    }
   }
 
   const searchProductsBySellerName = async () => {
