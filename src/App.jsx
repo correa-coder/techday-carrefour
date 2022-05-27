@@ -85,7 +85,11 @@ function App() {
           <h3>Produtos</h3>
           <div id="productsContainer">
             {
-              products.map((product) => <ProductCard productObject={product} />)
+              products.map((product) => <ProductCard productObject={product} openModal={() => {
+                setModalContent(product)
+                setModalVisible(true)
+              }
+              } />)
             }
           </div>
         </section>
