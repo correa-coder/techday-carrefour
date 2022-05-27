@@ -55,6 +55,14 @@ function App() {
               <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php" rel="external" target="_blank" title="Busca CEP | Correios" style={{ color: "gray", textDecoration: "underline" }}>Não sei meu CEP</a>
             </div>
           </div>
+          <div style={{ width: "50%", margin:"1rem auto" }}>
+            <p>Clique em selecionar para carregar os produtos</p>
+            <div className="card" style={{width:"36%"}}>
+              <h4 style={{textAlign:"center"}}>{sellerName}</h4>
+              <img src={logoImage} alt="Logo" />
+              <button class="btn btn-primary">Selecionar</button>
+            </div>
+          </div>
         </section>
       </main>
     </div>
