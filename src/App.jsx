@@ -5,8 +5,7 @@ import { SearchButton } from './components/SearchButton';
 import { ProductCard } from './components/ProductCard';
 import { Modal } from './components/Modal';
 import logoImage from './assets/images/logo.png';
-import mockProducts from './utils/mock_data';
-
+import simplifyProductObject from './utils/simplifyProduct';
 
 function App() {
   const [postalCode, setPostalCode] = useState("");
@@ -27,7 +26,7 @@ function App() {
     const endpoint = BASE_URL + `?postalCode=${postalCode}`;
 
     try {
-      const request = await fetch(endpoint, {method: "GET", cache: "no-cache"});
+      const request = await fetch(endpoint, { method: "GET", cache: "no-cache" });
       const jsonData = await request.json();
       // get the first seller and update state
       setSellerName(jsonData[0]["sellers"][0]["name"]);
@@ -42,9 +41,9 @@ function App() {
     const endpoint = BASE_URL + "?fq=" + sellerName;
 
     try {
-      const request = await fetch(endpoint, {method: "GET", cache: "no-cache"});
+      const request = await fetch(endpoint, { method: "GET", cache: "no-cache" });
       const jsonData = await request.json();
-      console.log(jsonData);
+      return jsonData;
     }
     catch (error) {
       alert(`Não foi possível carregar os produtos\nErro:\n${error}`);
