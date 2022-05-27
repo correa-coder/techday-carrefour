@@ -48,3 +48,26 @@
     width: 100%;
     border: 1px solid rgb(242, 242, 242);
 }
+
+/* products */
+.product-title {
+    font-size: 12px;
+    color: var(--blue-600);
+    font-weight: 400;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.product-price {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 18px;
+    margin-bottom: 1rem;
+    color: var(--blue-500);
+}
+
+#productsContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 75%;
+}
