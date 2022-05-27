@@ -5,6 +5,11 @@
     margin-right: auto;
 }
 
+/* images */
+.img-fluid {
+    width: 100%;
+}
+
 /* margin utilities */
 
 /* my: margin on y axis */
