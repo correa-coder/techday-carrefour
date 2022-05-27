@@ -8,7 +8,7 @@ export function ProductCard(props) {
                     R$ {props.productObject.price}
                 </div>
             </a>
-            <button className="btn btn-primary">visualizar</button>
+            <button className="btn btn-primary" onClick={ props.openModal }>visualizar</button>
         </div>
     )
 }
