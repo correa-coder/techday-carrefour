@@ -5,6 +5,7 @@ import { SearchButton } from './components/SearchButton';
 
 function App() {
   const [postalCode, setPostalCode] = useState("");
+  const [sellerName, setSellerName] = useState("Carrefour");
 
   const searchByPostalCode = (postalCode) => {
     const BASE_URL = "http://localhost:5000/sellers";
