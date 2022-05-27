@@ -2,11 +2,15 @@ import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { SearchInput } from './components/SearchInput';
 import { SearchButton } from './components/SearchButton';
+import { ProductCard } from './components/ProductCard';
 import logoImage from './assets/images/logo.png';
+import mockProducts from './utils/mock_data';
+
 
 function App() {
   const [postalCode, setPostalCode] = useState("");
   const [sellerName, setSellerName] = useState("Carrefour");
+  const [products, setProducts] = useState(mockProducts);
 
   const searchByPostalCode = (postalCode) => {
     const BASE_URL = "http://localhost:5000/sellers";
@@ -55,13 +59,21 @@ function App() {
               <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php" rel="external" target="_blank" title="Busca CEP | Correios" style={{ color: "gray", textDecoration: "underline" }}>Não sei meu CEP</a>
             </div>
           </div>
-          <div style={{ width: "50%", margin:"1rem auto" }}>
+          <div style={{ width: "50%", margin: "1rem auto" }}>
             <p>Clique em selecionar para carregar os produtos</p>
-            <div className="card" style={{width:"36%"}}>
-              <h4 style={{textAlign:"center"}}>{sellerName}</h4>
+            <div className="card" style={{ width: "36%" }}>
+              <h4 style={{ textAlign: "center" }}>{sellerName}</h4>
               <img src={logoImage} alt="Logo" />
-              <button class="btn btn-primary">Selecionar</button>
+              <button className="btn btn-primary">Selecionar</button>
             </div>
+          </div>
+        </section>
+        <section>
+          <h3>Produtos</h3>
+          <div id="productsContainer">
+            {
+              products.map((product) => <ProductCard productObject={product} />)
+            }
           </div>
         </section>
       </main>
