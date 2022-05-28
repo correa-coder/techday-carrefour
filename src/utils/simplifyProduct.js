@@ -1,6 +1,7 @@
 export default function simplifyProductObject(productObject) {
     /* reduce the information from the json that comes from the API  */
     const simplifiedProduct = {};
+    simplifiedProduct["id"] = productObject["productId"];
     simplifiedProduct["productName"] = productObject["productName"];
     simplifiedProduct["brand"] = productObject["brand"];
     simplifiedProduct["description"] = productObject["description"];

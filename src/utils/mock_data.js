@@ -2,6 +2,7 @@
 
 export default [
     {
+        id: 1,
         productName: "Batata Monalisa Aprox. 1 Kg",
         brand: "Carrefour",
         link: "https://mercado.carrefour.com.br/batata-monalisa-aprox--1-kg-46922/p",
@@ -10,6 +11,7 @@ export default [
         price: 7.99
     },
     {
+        id: 2,
         productName: "Alho a granel Aprox. 200g",
         brand: "Dai Alimentos",
         link: "https://mercado.carrefour.com.br/alho-a-granel-aprox--200g-176869/p",
@@ -18,6 +20,7 @@ export default [
         price: 20.59
     },
     {
+        id: 3,
         productName: "Óleo de Soja Liza 900ml",
         brand: "Liza",
         link: "https://mercado.carrefour.com.br/oleo-de-soja-liza-900ml-406830/p",

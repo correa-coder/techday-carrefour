@@ -21,6 +21,8 @@ function App() {
     price: 0
   });
 
+  console.log("re render");
+
   const searchByPostalCode = async (postalCode) => {
     const BASE_URL = "http://localhost:5000/sellers";
     const endpoint = BASE_URL + `?postalCode=${postalCode}`;
@@ -111,7 +113,7 @@ function App() {
             <h3>Produtos</h3>
             <div id="productsContainer">
               {
-                products.map((product) => <ProductCard productObject={product} openModal={() => {
+                products.map((product) => <ProductCard key={product.id} productObject={product} openModal={() => {
                   setModalContent(product)
                   setModalVisible(true)
                 }
