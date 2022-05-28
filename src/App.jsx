@@ -74,9 +74,9 @@ function App() {
             </div>
           </div>
           {sellerName ? (
-            <div style={{ width: "50%", margin: "1rem auto" }}>
+            <div style={{ maxWidth: "512px", margin: "1rem auto" }}>
               <p>Loja mais próxima encontrada</p>
-              <div className="card" style={{ width: "36%" }}>
+              <div className="card" style={{ maxWidth: "270px" }}>
                 <h4 style={{ textAlign: "center" }}>{sellerName}</h4>
                 <img src={logoImage} alt="Logo" />
                 <button className="btn btn-primary" onClick={loadProducts}>Selecionar</button>
