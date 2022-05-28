@@ -20,8 +20,8 @@ export function Modal(props) {
                     <div style={{ fontSize: ".9rem" }}>
                         Marca: <span style={brandStyle}>{props.content.brand}</span>
                     </div>
-                    <div style={{ display: "flex" }}>
-                        <div style={{ maxWidth: "200px", marginTop: "2rem" }}>
+                    <div className="modal-content-body">
+                        <div style={{ minWidth: "150px", maxWidth: "250px", marginTop: "2rem" }}>
                             <img src={props.content.image} alt={props.content.productName} className="img-fluid" />
                         </div>
                         <p className="modal-description">{props.content.description}</p>

@@ -106,7 +106,7 @@
 }
 
 .modal .container {
-    width: 40%;
+    max-width: 600px;
     height: fit-content;
     color: black;
     background: white;
@@ -121,6 +121,10 @@
 .modal-content h2 {
     font-weight: 400;
     color: rgb(51, 51, 51);
+}
+
+.modal-content-body {
+    display: flex;
 }
 
 .modal-close-btn {
@@ -141,7 +145,6 @@
 
 .modal-description {
     margin-top: 2.5rem;
-    max-width: 340px;
     max-height: 230px;
     overflow: scroll;
 }
