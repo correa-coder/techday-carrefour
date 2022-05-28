@@ -1,0 +1,9 @@
+@media(max-width:500px) {
+    .navbar-items-container {
+        display: none !important;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+}

@@ -4,13 +4,12 @@ import boxSVG from '../assets/images/shipping_box.svg';
 
 const navbarItemsStyle = {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    width: "30%"
+    gridTemplateColumns: "1fr 1fr 1fr"
 }
 
 export function NavbarItems() {
     return (
-        <div style={navbarItemsStyle}>
+        <div style={navbarItemsStyle} className="navbar-items-container">
             <div className="navbar-item">
                 <img src={personSVG} alt="Usuário" style={{width:"28px"}} />
                 <div className="px-1"><strong>Bem-vindo</strong><br />Entrar</div>

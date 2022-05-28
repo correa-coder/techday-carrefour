@@ -1,4 +1,5 @@
 import brandingImage from '../assets/images/branding.png';
+import listSVG from '../assets/images/bs-list.svg';
 import {NavbarItems} from './NavbarItems';
 
 const navbarStyle = {
@@ -13,6 +14,9 @@ export function Navbar() {
                 <a href="#">
                     <img src={brandingImage} alt="Logo Carrefour" />
                 </a>
+                <div className="navbar-toggle">
+                    <img src={listSVG} alt="Lista de itens" />
+                </div>
                 <NavbarItems />
             </div>
         </nav>
