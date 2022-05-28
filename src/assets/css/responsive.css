@@ -6,4 +6,22 @@
     .navbar-toggle {
         display: block;
     }
+
+    #productsWrapper {
+        width: 90%;
+    }
+}
+
+@media(max-width: 400px) {
+    #productsWrapper {
+        width: 100%;
+    }
+
+    #productsContainer {
+        display: block;
+    }
+
+    #productsContainer .card {
+        margin-bottom: 2rem;
+    }
 }

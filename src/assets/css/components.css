@@ -83,10 +83,14 @@
     font-weight: 700;
 }
 
+#productsWrapper {
+    width: 75%;
+    margin: 4rem auto;
+}
+
 #productsContainer {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    width: 75%;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 170px));
 }
 
 /* modal */

@@ -85,7 +85,7 @@ function App() {
           ) : null}
         </section>
         {products.length !== 0 ? (
-          <section style={{ marginTop: "4rem", marginBottom: "4rem", marginLeft: "auto", width: "90%" }}>
+          <section id="productsWrapper">
             <h3>Produtos</h3>
             <div id="productsContainer">
               {
