@@ -1,4 +1,4 @@
-# Carrefour Techday
+# Carrefour Techday 👨‍💻
 
 ## Descrição
 
