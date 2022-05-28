@@ -4,6 +4,7 @@ import { SearchInput } from './components/SearchInput';
 import { SearchButton } from './components/SearchButton';
 import { ProductCard } from './components/ProductCard';
 import { Modal } from './components/Modal';
+import { searchProductsBySellerName, searchByPostalCode } from './utils/api_client';
 import logoImage from './assets/images/logo.png';
 import simplifyProductObject from './utils/simplifyProduct';
 
@@ -21,40 +22,27 @@ function App() {
     price: 0
   });
 
-  console.log("re render");
-
-  const searchByPostalCode = async (postalCode) => {
-    const BASE_URL = "http://localhost:5000/sellers";
-    const endpoint = BASE_URL + `?postalCode=${postalCode}`;
-
-    try {
-      const request = await fetch(endpoint, { method: "GET", cache: "no-cache" });
-      const jsonData = await request.json();
-      // get the first seller and update state
-      setSellerName(jsonData[0]["sellers"][0]["name"]);
-    }
-    catch (error) {
-      alert(`Não foi possível carregar as lojas\nErro:\n${error}`);
-    }
+  const handlePostalCodeInput = (e) => {
+    setPostalCode(e.target.value);
   }
 
-  const searchProductsBySellerName = async () => {
-    const BASE_URL = "http://localhost:5000/products";
-    const endpoint = BASE_URL + "?fq=" + sellerName;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    try {
-      const request = await fetch(endpoint, { method: "GET", cache: "no-cache" });
-      const jsonData = await request.json();
-      return jsonData;
-    }
-    catch (error) {
-      alert(`Não foi possível carregar os produtos\nErro:\n${error}`);
-    }
+    // remove dash symbol from postal code
+    let postalCodeValue = postalCode.replace("-", "");
+
+    // request seller from API
+    const foundSellers = await searchByPostalCode(postalCodeValue);
+
+    // get the first seller and update state
+    const nearestSellerName = foundSellers[0]["sellers"][0]["name"];
+    setSellerName(nearestSellerName);
   }
 
   const loadProducts = async () => {
     // request the products in the API
-    let foundProducts = await searchProductsBySellerName();
+    let foundProducts = await searchProductsBySellerName(sellerName);
 
     // remove unused properties from the json object
     foundProducts = foundProducts.map((productObject) => {
@@ -63,18 +51,6 @@ function App() {
 
     // update state to show the products in the page
     setProducts(foundProducts);
-  }
-
-  const handlePostalCodeInput = (e) => {
-    setPostalCode(e.target.value);
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // remove dash symbol from postal code
-    let postalCodeValue = postalCode.replace("-", "");
-    searchByPostalCode(postalCodeValue);
   }
 
   return (
