@@ -141,3 +141,8 @@
     max-height: 230px;
     overflow: scroll;
 }
+
+#searchByPostalCode {
+    max-width: 512px;
+    margin: 4rem auto;
+}

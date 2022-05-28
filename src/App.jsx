@@ -63,7 +63,7 @@ function App() {
       </header>
       <main className="container">
         <section>
-          <div id="searchByPostalCode" style={{ width: "50%", margin: "4rem auto" }}>
+          <div id="searchByPostalCode">
             <h1>Pesquisa por CEP</h1>
             <form className="input-group" onSubmit={handleSubmit}>
               <SearchInput name="postalcode" placeholder="09851-350" value={postalCode} onChange={handlePostalCodeInput} />
